@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-300">
+    <!-- Navbar -->
+    <div class="w-full h-10 sm:h-12 xl:h-16 bg-white shadow flex items-center justify-between md:justify-start">
+        <!-- Logo -->
+        <div class="h-2/3 ml-4 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 lg:w-10 lg:h-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+            <span>LOGO</span>
+        </div>
+        <!-- End Logo -->
+        <div class="md:w-1/2 lg:w-1/4 ml-4 hidden md:flex justify-around">
+            <span>
+                <a href="">Home</a>
+            </span>
+            <span>
+                <a href="">About</a>
+            </span>
+            <span>
+                <a href="">Contact</a>
+            </span>
+            <span>
+                <a href="">Help</a>
+            </span>
+        </div>
+        <!-- Android -->
+        <nav x-data="{ open: false }">
+            <button @click="open = true" class="w-7 h-7 sm:w-9 sm:h-9 flex md:hidden mr-2 focus:border rounded" x-bind:class="open ? 'focus:border' : 'focus:border-none'">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <ul class="fixed md:hidden left-0 right-0 top-10 sm:top-12 bg-white font-medium"
+            x-show="open" @click.away="open = false">
+                <li class="text-sm p-2 mb-1 flex justify-center shadow">
+                    <div class="w-[90%] h-[24px] sm:h-[30px] flex border">
+                        <input type="text" class="w-[85%] focus:outline-none border">
+                        <button class="w-[15%] bg-sky-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 m-auto">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>                              
+                        </button>
+                    </div>
+                </li>
+                <li class="text-sm sm:text-base p-2 mb-2 shadow">
+                    <a href=""><span>Home</span></a>
+                </li>
+                <li class="text-sm sm:text-base p-2 mb-2 shadow">
+                    <a href=""><span>About</span></a>
+                </li>
+                <li class="text-sm sm:text-base p-2 mb-2 shadow">
+                    <a href=""><span>Contact</span></a>
+                </li>
+                <li class="text-sm sm:text-base p-2 mb-2">
+                    <a href=""><span>Help</span></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Android -->
+    </div>
+    <!-- End Navbar -->
+</body>
+</html>
